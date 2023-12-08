@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Portfolio Project - Tetiana Klitna</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html">
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Projects</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/tetiana-klitna-2970b950/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/TetianaKlitna" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">2023</span>
+									<h3>Brazilian E-commerce by Olist <br />
+									(Microsoft SQL Server)</h3>
+									<p>This dataset was generously provided by Olist, the largest department store in Brazilian marketplaces.
+										 Olist connects small businesses from all over Brazil to channels without hassle and with a single contract. 
+										 Those merchants are able to sell their products through the Olist Store and ship them directly to the customers using Olist logistics partners.</p>
+								</header>
+								<div class="image main"><img src="images/ecommerce-brazil.jpg" alt="" /></div>
+								<p><h3>Ask</h3>
+									Understanding customer reviews is crucial for a business's success. 
+									Analyzing these reviews helps in gaining a deeper understanding of customer preferences, and
+									the resulting insights can be utilized to enhance customer service and the overall experience.
+								</p>
+								<p>
+									<b>Business Task</b><br>
+									Analyze historical data to determine how to prevent client dissatisfaction.
+								</p>
+								<p><h3>Prepare</h3>
+								  <b>Dataset source:</b><br/>
+								  The dataset has information of 100k orders from 2016 to 2018 made at multiple marketplaces in Brazil. Its features allows viewing an order from multiple dimensions: from order status, price, payment and freight performance to customer location, product attributes and finally reviews written by customers. We also released a geolocation dataset that relates Brazilian zip codes to lat/lng coordinates.
+								  <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce"><span class="label">Link to Data Source</span></a><br/>
+								  <b>Size of data:</b><br/>
+                                  99 441 unique orders, 3 095 unique sellers, 32 951 products <br/>
+								  <b>Organization data</b><br/>
+                                  olist_customers_dataset.csv<br/>
+                                  olist_geolocation_dataset.csv<br/>
+                                  olist_order_items_dataset.csv<br/>
+                                  olist_order_payments_dataset.csv<br/>
+                                  olist_order_reviews_dataset.csv<br/>
+                                  olist_orders_dataset.csv<br/>
+                                  olist_products_dataset.csv<br/>
+                                  olist_sellers_dataset.csv<br/>
+                                  product_category_name_translation.csv<br/>
+								  <b>Metadata:</b><br/>
+								  <b>olist_orders</b>
+								  <ul>
+									<li><b>order_id</b> Primary Key nvarchar(50) Not Null</li>
+									<li><b>customer_id</b> Foreign Key table nvarchar(50) Not Null</li>
+									<li><b>order_status</b> nvarchar(50) enum{approved, delivered, created, invoiced, processing, unavailable, canceled, shipped} Not Null</li>
+									<li><b>order_purchase_timestamp</b> datetime2 Not Null</li>
+									<li><b>order_approved_at</b> datetime2 Null</li>
+									<li><b>order_delivered_carrier_date</b> datetime2 Null</li>
+									<li><b>order_delivered_customer_date</b> datetime2 Null</li>
+									<li><b>order_estimated_delivery_date</b> datetime2 Not Null</li>
+								  </ul>
+								  <b>olist_order_reviews</b>
+								  <ul>
+									<li><b>review_id</b> Primary Key nvarchar(50) Not Null</li>
+									<li><b>order_id</b> Primary Key nvarchar(50) Not Null Foreign Key</li>
+									<li><b>review_score</b> int enum{1, 2, 3, 4, 5} Not Null</li>
+									<li><b>review_comment_title</b> nvarchar(50) Null</li>
+									<li><b>review_comment_message</b> nvarchar(250) Null</li>
+									<li><b>review_creation_date</b> datetime2 Not Null</li>
+									<li><b>review_answer_timestamp</b> datetime2 Not Null</li>
+								  </ul>
+								  <b>olist_order_items</b>
+								  <ul>
+									<li><b>order_id</b> Primary Key nvarchar(50) Not Null Foreign Key</li>
+									<li><b>order_item_id</b> Primary Key int Not Null</li>
+									<li><b>product_id</b> Foreign Key nvarchar(50)  Not Null</li>
+									<li><b>seller_id</b> Foreign Key nvarchar(50) Not Null</li>
+									<li><b>shipping_limit_date</b> datetime2 Not Null</li>
+									<li><b>price</b> float Not Null</li>
+									<li><b>freight_value</b> float Not Null</li>
+								  </ul>
+								  <b>olist_order_payments</b>
+								  <ul>
+									<li><b>order_id</b> Primary Key nvarchar(50) Not Null Foreign Key</li>
+									<li><b>payment_sequential</b> Primary Key int Not Null</li>
+									<li><b>payment_type</b>nvarchar(50) enum{credit_card, not_defined, debit_card, boleto, voucher}  Not Null</li>
+									<li><b>payment_installments</b> tinyint Not Null</li>
+									<li><b>payment_value</b> float Not Null</li>
+								  </ul>
+								  <b>olist_customers</b>
+								  <ul>
+									<li><b>customer_id</b> Primary Key nvarchar(50) Not Null</li>
+									<li><b>customer_unique_id</b> Primary Key int Not Null</li>
+									<li><b>customer_zip_code_prefix</b>int  Not Null</li>
+									<li><b>customer_city</b> nvarchar(50) Not Null</li>
+									<li><b>customer_state</b> nvarchar(50) Not Null</li>
+								  </ul>
+								  <b>olist_products</b>
+								  <ul>
+									<li><b>product_id</b> Primary Key nvarchar(50) Not Null</li>
+									<li><b>product_category_name</b> nvarchar(50) Null</li>
+									<li><b>product_name_lenght</b>int Null</li>
+									<li><b>product_description_lenght</b> int Null</li>
+									<li><b>product_photos_qty</b> int  Null</li>
+									<li><b>product_weight_g</b> int Null</li>
+									<li><b>product_length_cm</b> int Null</li>
+									<li><b>product_height_cm</b> int Null</li>
+									<li><b>product_width_cm</b> int Null</li>
+								  </ul>
+								  <b>olist_sellers</b>
+								  <ul>
+									<li><b>seller_id</b> Primary Key nvarchar(50) Not Null</li>
+									<li><b>seller_zip_code_prefix</b>int Not Null</li>
+									<li><b>seller_city</b> nvarchar(50) Not Null</li>
+									<li><b>seller_state</b> nvarchar(50) Not Null</li>
+								  </ul>
+								  <b>olist_geolocation</b>
+								  <ul>
+									<li><b>geolocation_zip_code_prefix</b> int Not Null</li>
+									<li><b>geolocation_lat</b>float Null</li>
+									<li><b>geolocation_lng</b> float Null</li>
+									<li><b>geolocation_city</b> nvarchar(50) Not Null</li>
+									<li><b>geolocation_state</b> nvarchar(50) Not Null</li>
+								  </ul>
+								  <b>olist_product_category_name_translation</b>
+								  <ul>
+									<li><b>product_category_name</b> nvarchar(50) Not Null</li>
+									<li><b>product_category_name_english</b>nvarchar(50) Not Null</li>
+								  </ul>
+								  <b>Data Schema:</b><br/>
+								  The data is divided in multiple datasets for better understanding and organization. 
+								  <div class="image main"><img src="images/schema.png" alt="" /></div>
+								</p>
+								<p><h3>Process</h3>
+									<ul>
+										<li>Downloaded Brazilian E-Commerce Public Dataset by Olist<a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce"><span class="label">Link to Data Source</span></a></li>
+										<li>Created "csv" subfolder for the .csv file and uploaded into Microsoft SQL Server
+										<br><i>Database Brazilian_E_Commerce > Tasks > Import Flat File...</i> 	
+									    </li> 
+										<li><b>Used tools for processing and vizualization:</b><br>
+											Microsoft SQL Server and Tableau.
+										</li>
+										<li><b>Clean Data:</b><br>
+										    After uploading the data, the first step involves adding primary and foreign keys to the tables
+											<a href="https://github.com/TetianaKlitna/Brazilian-E-Commerce-Case-Project/blob/main/Constraints.sql"><span class="label">Link to Constraints.sql</span></a>.<br>
+											The process of cleaning data is detailed and explained in the <a href="https://github.com/TetianaKlitna/Brazilian-E-Commerce-Case-Project/blob/main/CleaningProcess.sql"><span class="label">Link to CleaningProcess.sql</span></a> file.<br>
+											An Entity-Relationship (ER) diagram is a visual representation of the relationships among entities in a database:
+											<div class="image main"><img src="images/Diagram.jpg" alt="" /></div>
+                               
+									</pre>
+									</ul>
+								<p><h3>Analyze</h3>	
+									<ol>
+										<li>How satisfied are customers with their orders?</li>
+										<li>What is the number of unique orders per review score?</li>
+										<li>What is the order satisfaction rate for on-time and late deliveries?</li>
+										<li>What is the average/max/min/median duration of delivery and estimated duration of delivery for an order by review satisfaction?</li>
+										<li>What are the total number of reviews, the count of negative reviews, and the percentage of negative reviews for each month and year?</li>
+										<li>What is the satisfaction rate categorized by order status?</li>
+										<li>What is the satisfaction rate categorized by top 10 sellers?</li>
+										<li>What is the satisfaction rate categorized by top 10 sold product categories?</li>
+									</ol>
+									The process of analyzing data is detailed and explained in the 
+									<a href="https://github.com/TetianaKlitna/Brazilian-E-Commerce-Case-Project/blob/main/Insights.sql"><span class="label">Link to Insights.sql</span></a>.<br>
+										
+						</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Greater Seattle Area, WA, 98087</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(425) 480-0097</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">klitna.tetiana@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/tetiana-klitna-2970b950/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/TetianaKlitna" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

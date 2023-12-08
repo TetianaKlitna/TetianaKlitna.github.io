@@ -1,0 +1,588 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Portfolio Project - Tetiana Klitna</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html">
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Projects</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/tetiana-klitna-2970b950/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/TetianaKlitna" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">2023</span>
+									<h3>Cyclistic bike-share analysis <br />
+									(Microsoft Power BI)</h3>
+									<p>A bike-share program that features more than 5,800 bicycles and 600 docking stations.<br />
+									Cyclistic sets itself apart by also offering reclining bikes, hand tricycles, and cargo <br />
+									bikes, making bike-share more inclusive to people with disabilities and riders <br />
+									who can't use a standard two-wheeled bike.</p>
+								</header>
+								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								<p><h3>Ask</h3>
+									Three questions will guide the future marketing program:
+									<ol>
+										<li>How do annual members and casual riders use Cyclistic bikes differently?</li>
+										<li>Why would casual riders buy Cyclistic annual memberships?</li>
+										<li>How can Cyclistic use digital media to influence casual riders to become members?</li>
+									</ol>
+								</p>
+								<p>
+									<h4>Business Task</h4>
+									Analyze historical data to determine how annual and casual riders use Cyclistic bikes differently.
+								</p>
+								<p>
+                                    <h4>Key Stakeholders:</h4>
+									<ul>
+										<li><b>Lily Moreno:</b> The director of marketing and your manager. Moreno is responsible for the development of campaigns and initiatives to promote the bike-share program. These may include email, social media, and other channels.</li>
+										<li><b>Cyclistic marketing analytics team:</b> A team of data analysts who are responsible for collecting, analyzing, and reporting data that helps guide Cyclistic marketing strategy.</li>
+										<li><b>Cyclistic executive team:</b> The notoriously detail-oriented executive team will decide whether to approve the recommended marketing program.</li>
+									  </ul>
+								</p>
+								<p><h3>Prepare</h3>
+								  <b>Dataset source:</b><br/>
+                                  This is public data that you can use to explore how different customer types are using Cyclistic bikes. But note that data-privacy issues prohibit you from using riders’ personally identifiable information. This means that you won’t be able to connect pass purchases to credit card numbers to determine if casual riders live in the Cyclistic service area or if they have purchased multiple single passes.
+								  <a href="https://divvy-tripdata.s3.amazonaws.com/index.html"><span class="label">Link to Data Source</span></a><br/>
+								  <b>Lisence:</b><br/>
+								  The data has been made available by Motivate International Inc. under this license:
+								  <a href=" https://ride.divvybikes.com/data-license-agreement"><span class="label">Link to Lisence</span></a><br/>
+								  <b>Size of data:</b><br/>
+                                  rows: 5 779 438; columns: 13<br/>
+								  <b>Organization data</b><br/>
+                                  year month-divvy-tripdata.zip<br/>
+								  <b>Metadata:</b><br/>
+								  <ul>
+									<li><b>ride_id</b> Primary Key String Not Null</li>
+									<li><b>rideable_type</b> String enum ("electric_bike", "classic_bike", "docked_bike") Not Null</li>
+									<li><b>start_station_id</b> String Nullable start station id</li>
+									<li><b>start_station_name</b> String Nullable  start station name</li>
+									<li><b>started_at</b> Timestamp Not Null start date and time</li>
+									<li><b>start_lat</b> Float Nullable trip start latitude</li>
+									<li><b>start_lng</b> Float Nullable trip start longitude</li>
+									<li><b>end_station_id</b> String Nullable end station id</li>
+									<li><b>end_station_name</b> String Nullable end station name</li>
+									<li><b>ended_at</b> Timestamp Not Null end date and time</li>
+									<li><b>end_lat</b> Float Nullable end latitude</li>
+									<li><b>end_lng</b> Float Nullable end longitude</li>
+									<li><b>member_casual</b> String enum("casual", "member") Not Null</li>
+								  </ul>
+									<b>The dataset contains information about 12 months without missing information:</b><br/>
+									<table>
+										<tr>
+										  <th>№</th>
+										  <th>Year</th>
+										  <th>Month</th>
+										  <th>Rows</th>
+										</tr>
+										<tr>
+										  <td>1</td>
+										  <td>2022</td>
+										  <td>July</td>
+										  <td>823 487</td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>2022</td>
+											<td>August</td>
+											<td>785 931</td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>2022</td>
+											<td>September</td>
+											<td>701 338</td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td>2022</td>
+											<td>October</td>
+											<td>558 684</td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td>2022</td>
+											<td>November</td>
+											<td>337 735</td>
+										</tr>
+										<tr>
+											<td>6</td>
+											<td>2022</td>
+											<td>December</td>
+											<td>181 806</td>
+										</tr>
+										<tr>
+											<td>7</td>
+											<td>2023</td>
+											<td>January</td>
+											<td>190 301</td>
+										</tr>
+										<tr>
+											<td>8</td>
+											<td>2023</td>
+											<td>February</td>
+											<td>190 445</td>
+										</tr>
+										<tr>
+											<td>9</td>
+											<td>2023</td>
+											<td>March</td>
+											<td>258 678</td>
+										</tr>
+										<tr>
+											<td>10</td>
+											<td>2023</td>
+											<td>April</td>
+											<td>426 590</td>
+										</tr>
+										<tr>
+											<td>11</td>
+											<td>2023</td>
+											<td>May</td>
+											<td>604 826</td>
+										</tr>
+										<tr>
+											<td>12</td>
+											<td>2023</td>
+											<td>June</td>
+											<td>719 617</td>
+										</tr>
+									  </table>
+<b>Query:</b>
+<pre>
+	<code>
+select year, month, rows
+from 
+(
+ select extract(year from started_at) year, extract(month from started_at) month, count(1) rows
+ from `healthy-battery-390020.Cyclistic.cycle_trip_data` 
+ group by extract(year from started_at),extract(month from started_at)
+) 
+order by year, month;
+    </code>
+</pre>
+									  <b>Data ROCCC:</b>
+									  <ul>
+										<li><b>Reliability.</b> The data has been made available by Motivate International Inc. under this license <a href=" https://ride.divvybikes.com/data-license-agreement"><span class="label">Link to Lisence</span></a>.<br/>
+											It can be used to explore how different customer types are using Cyclistic bikes.</li>
+										<li><b>Originality.</b> The dataset is a first party source.</li>
+										<li><b>Comprehensiveness.</b> For the purposes of this case study, the dataset is appropriate and will enable you to answer the business questions.</li>
+										<li><b>Current.</b> Dataset contains information for the last 12 months.</li>
+										<li><b>Cited.</b> The Google Data Analytics certification cites the Cyclistic bikes dataset.</li>
+									  </ul>
+								</p>
+								<p><h3>Process</h3>
+									<ul>
+										<li>Downloaded the previous 12 months of Cyclistic trip data <a href="https://divvy-tripdata.s3.amazonaws.com/index.html"><span class="label">Link to Data Source</span></a></li>
+									    <li>Installed an extension for Chrome <a href="https://chrome.google.com/webstore/detail/downthemall/nljkibfhlpcnanjgbnlnbjecgicbjkge"><span class="label">DownThemAll!</span></a>
+									    <br><b>Uploaded:</b>
+										<br>202207-divvy-tripdata.zip
+										<br>202208-divvy-tripdata.zip
+										<br>202209-divvy-tripdata.zip
+										<br>202210-divvy-tripdata.zip
+										<br>202211-divvy-tripdata.zip
+										<br>202212-divvy-tripdata.zip
+										<br>202301-divvy-tripdata.zip
+										<br>202302-divvy-tripdata.zip
+										<br>202303-divvy-tripdata.zip
+										<br>202304-divvy-tripdata.zip
+										<br>202305-divvy-tripdata.zip
+										<br>202306-divvy-tripdata.zip
+									    </li>
+										<li>Created "csv" subfolder for the .csv file and uploaded into Microsoft Power BI
+										<br><i>Home > New Source > Folder > Create Table "FACT_CYCLISIC"</i> 
+										<br><span class="image left"><img src="images/img01.jpg" alt="" /></span>
+										<br><span class="image fit"><img src="images/img02.jpg" alt="" /></span>	
+									    </li> 
+										<li><b>What tools are you choosing and why?</b><br>I used Microsoft Power BI because it is a popular BI tool that provides the ability to transform and visualize a large amount of data.
+										</li>
+										<li><b>Clean Data:</b><br>
+<ol>
+<li>Checked data for duplicates:
+<pre> <code>
+select ride_id
+from `healthy-battery-390020.Cyclistic.cycle_trip_data`
+group by ride_id
+having count(ride_id) > 1;
+</code> </pre>
+</li>
+<li>Excluded from analyze values where started_at = ended_at
+<pre> <code>
+select count(1)
+from `healthy-battery-390020.Cyclistic.cycle_trip_data`
+where started_at = ended_at;
+</code></pre>
+</li>
+<li>Swaped started_at and ended_at in case started_at  >  ended_at
+<pre> <code>
+select count(1)
+from `healthy-battery-390020.Cyclistic.cycle_trip_data`
+where started_at > ended_at;
+</code></pre>
+</li>
+<li>Cleared asterisk in the end start_station_name and end_station_name
+	<pre> <code>
+select count(1)
+from `healthy-battery-390020.Cyclistic.cycle_trip_data`
+where start_station_name like "%*"
+or end_station_name like "%*";
+</code></pre>
+</li>
+<li>Checked error coordinates (these coordinates not available in Chicago)
+<pre> <code>
+select count(1)
+from `healthy-battery-390020.Cyclistic.cycle_trip_data`
+where start_lng=start_lat and end_lng = end_lat;
+
+select count(1)
+from `healthy-battery-390020.Cyclistic.cycle_trip_data`
+where round(start_lat)= round(start_lng)
+and round(end_lat)= round(end_lng);
+</code></pre>
+</li>
+<li>Excluded from analyze values
+<pre> <code>
+[Start Station Name] <> "DIVVY CASSETTE REPAIR MOBILE STATION" 
+and  [Start Station Name] <> "OH Charging Stx - Test" 
+and [Start Station Name] <> "646" 
+and [End Station Name] <> "DIVVY CASSETTE REPAIR MOBILE STATION" 
+and  [End Station Name] <> "OH Charging Stx - Test" 
+and not Text.EndsWith([Start Station Name], "*") 
+and not Text.EndsWith([End Station Name], "*")	
+</code></pre>
+</li>
+</ol>
+									<li><b>Changed Types:</b>
+										<table>
+											<tr>
+											  <th>Column Name</th>
+											  <th>Original Type</th>
+											  <th>New Type</th>
+											</tr>
+											<tr>
+											  <td>Started at</td>
+											  <td>text</td>
+											  <td>datetime</td>
+											</tr>
+											<tr>
+												<td>Ended at</td>
+												<td>text</td>
+												<td>datetime</td>
+											</tr>
+											<tr>
+												<td>Start Lat</td>
+												<td>text</td>
+												<td>number</td>
+											</tr>
+											<tr>
+												<td>Start Lng</td>
+												<td>text</td>
+												<td>number</td>
+											</tr>
+											<tr>
+												<td>End Lat</td>
+												<td>text</td>
+												<td>number</td>
+											</tr>
+											<tr>
+												<td>End Lng</td>
+												<td>text</td>
+												<td>number</td>
+											</tr>
+										</table>
+									</li>
+									<li><b>Added Calculated Columns:</b>
+										<table>
+											<tr>
+											  <th>Column Name</th>
+											  <th>Type</th>
+											  <th>Description</th>
+											</tr>
+											<tr>
+											  <td>Day</td>
+											  <td>date</td>
+											  <td>Extract from "Started at" date without time;
+                                                  <br>Join Column for Calculated "DIMM_Date" Table
+											  </td>
+											</tr>
+											<tr>
+												<td>Time to the Minute</td>
+												<td>time</td>
+												<td>Extract from "Started at" time without seconds;
+                                                    <br>Join Column for Calculated "DIMM_Time" Table
+												</td>
+											  </tr>
+											  <tr>
+												<td>Duration of ride (min)</td>
+												<td>minute</td>
+												<td>Calculate subtraction between "Ended at" and "Ended at" in minutes
+													<br>Number.Round(Duration.TotalMinutes([ended_at] - [started_at]), 2))
+												</td>
+											  </tr>
+										</table>
+									</li>
+								    <li><b>Added Calculated Tables:</b><br>
+									     <i>DIMM_Time {0..1439}</i>
+										 <table>
+											<tr>
+											  <th>Column Name</th>
+											  <th>Column Type</th>
+											</tr>
+											<tr>
+											  <td>Minute</td>
+											  <td>number</td>
+											</tr>
+											<tr>
+												<td>Time to the Minute</td>
+												<td>time</td>
+											  </tr>
+											  <tr>
+												<td>5 min bucket</td>
+												<td>number</td>
+											  </tr>
+											  <tr>
+												<td>10 min bucket</td>
+												<td>number</td>
+											  </tr>
+											  <tr>
+												<td>1 hour bucket</td>
+												<td>number</td>
+											  </tr>
+											  <tr>
+												<td>5 min time slot</td>
+												<td>time</td>
+											  </tr>
+											  <tr>
+												<td>10 min time slot</td>
+												<td>time</td>
+											  </tr>
+											  <tr>
+												<td>1 hour time slot</td>
+												<td>time</td>
+											  </tr>
+											  <tr>
+												<td>Hour</td>
+												<td>number</td>
+											  </tr>
+											  <tr>
+												<td>Time of Day </td>
+												<td>text enum{night/morning/afternoon/evening}</td>
+											  </tr>
+										</table>
+										<i>DIMM_Date [07/01/2022; 06/30/2023]</i>
+										<table>
+											<tr>
+											  <th>Column Name</th>
+											  <th>Column Type</th>
+											</tr>
+											<tr>
+											  <td>Day</td>
+											  <td>date</td>
+											</tr>
+											<tr>
+												<td>Day Name</td>
+												<td>text {Sunday, Monday, ect}</td>
+											</tr>
+											<tr>
+												<td>Day of Week</td>
+												<td>number {0,...,6}</td>
+											</tr>
+											<tr>
+												<td>Quarter Num</td>
+												<td>number {1,...,4}</td>
+											</tr>
+											<tr>
+												<td>Quarter</td>
+												<td>text {Qrt1, Qrt2,Qrt3, Qrt4}</td>
+											</tr>
+											<tr>
+												<td>Month</td>
+												<td>text {January, February,...}</td>
+											</tr>
+											<tr>
+												<td>Month Num</td>
+												<td>number (1,.. 12)</td>
+											</tr>
+											<tr>
+												<td>Year</td>
+												<td>number</td>
+											</tr>
+										</table>
+									<li>Removed rows with empty "Start Station Name" and "End Station Name"</li>
+									<li>Trimmed text fields in the "FACT_Cyclistic" Table</li>
+									</ul>
+								</p>
+								<p><b>Model View:</b></p>
+								<span class="image fit"><img src="images/img03.jpg" alt="" /></span>
+								<p><b> Measures:</b></p>
+								<span class="image ledt"><img src="images/img04.jpg" alt="" /></span>
+<pre> <code>
+Amount Unique Rides = DISTINCTCOUNT(FACT_Cyclistic[Ride ID])
+</code></pre>
+<pre> <code>
+Rides % All Season = DIVIDE(
+    DISTINCTCOUNT(FACT_Cyclistic[Ride ID]),
+		CALCULATE(
+			DISTINCTCOUNT(FACT_Cyclistic[Ride ID]),
+			REMOVEFILTERS(FACT_Cyclistic)
+		)
+	)
+</code></pre>
+<pre> <code>
+Rides % Month = IF(  
+		ISINSCOPE(DIMM_Date[Quarter]),
+			DIVIDE(  
+				[Amount Unique Rides],  
+				CALCULATE(  
+				[Amount Unique Rides],  
+				REMOVEFILTERS(DIMM_Date[Month], DIMM_Date[Month Num])  
+				)  
+			)
+		)
+		
+</code></pre>
+<pre> <code>
+Rides All Season = CALCULATE(
+		DISTINCTCOUNT(FACT_Cyclistic[Ride ID]),
+		REMOVEFILTERS(DIMM_Date[Month])
+		)
+	
+</code></pre>
+<pre> <code>
+Rides % MoM Growth =
+    VAR RidesPriorMonth = CALCULATE( [Amount Unique Rides],  
+                                     PARALLELPERIOD('DIMM_Date'[Day],  -1,  MONTH )  
+                                   )
+    VAR RidesGrowthMonth =  IF(  
+                                ISINSCOPE(DIMM_Date[Month]),
+                                DIVIDE(
+                                      ([Amount Unique Rides] - RidesPriorMonth),
+                                      RidesPriorMonth
+                                )
+                            )
+  RETURN  RidesGrowthMonth
+</code></pre>
+<pre> <code>
+Rides YTD = IF(  
+		ISINSCOPE(DIMM_Date[Quarter])||ISINSCOPE(DIMM_Date[Month]),
+		TOTALYTD(
+				   [Amount Unique Rides],
+				   DIMM_Date[Day],
+				   "06-30"
+				)
+		)	
+</code></pre>
+                            <h3>Analyze</h3>
+							<span class="image fit"><img src="images/img05.jpg" alt="" /></span>
+							<p>Member customers made up 62% of all rides, while Casual customers accounted for the remaining 38%.<br>
+							Among Members, 38.25% preferred classic bikes and 23.74% preferred electric bikes. For Casual customers, 18.14% chose classic bikes, 16.68% preferred electric bikes, and 3.19% opted for docked bikes. It's important to note that Members did not use docked bikes at all.
+						    </p>
+							<span class="image fit"><img src="images/img06.jpg" alt="" /></span>
+							<p>The most popular start station among Casual Riders is "Streeter Dr & Grand Ave", accounting for 1.15% of Casual Rides. Casual Riders tend to prefer rides along the Chicago Lakefront Trail.</p>	
+							<span class="image fit"><img src="images/img07.jpg" alt="" /></span>
+							<p>The most popular start station among Member Riders is 'Kingsbury St & Kinzie St,' accounting for 0.54% of Member Rides. Member Riders don't have as strong a trend as Casual Riders.</p>
+						    <span class="image fit"><img src="images/img08.jpg" alt="" /></span>
+							<p>Casual customers ride more than member customers during the night (22:00 - 5:00) on the electric bikes; in other cases, member customers ride more.</p>
+							<span class="image fit"><img src="images/img09.jpg" alt="" /></span>
+							<p>Classic and electric bikes are almost equally popular among casual riders during the night (22:00 - 5:00) and morning (5:00 - 12:00). However, in the afternoon, casual riders use classic bikes slightly more than electric bikes, with a difference of 0.74%, and in the evening, the difference is 0.79%.
+							<br>Member riders prefer to use classic bikes during the morning(5:00 - 12:00), afternoon(12:00 - 17:00), and evening(17:00 - 12:00). During the night (22:00 - 5:00), member riders use classic bikes more than electric bikes, with only a 0.5% difference in favor of classic bikes.
+							</p>
+							<span class="image fit"><img src="images/img10.jpg" alt="" /></span>
+							<p>Member rides have two peaks on the graph at 8:00 and 17:00. It appears that they use classic bikes for their daily commute to and from work.
+							<br>Casual Riders have only one peak value at 17:00.</p>
+							<span class="image fit"><img src="images/img11.jpg" alt="" /></span>
+							<p>The median duration is 12.88 minutes for casual customers and 8.67 minutes for member customers. In general, the median duration of rides for casual customers is higher than that for members, especially between 9:00 and 15:00.</p>
+						    <span class="image fit"><img src="images/img12.jpg" alt="" /></span>
+							<p>Cyclistic is a seasonal service. Warm months, especially summer months, are popular among Member and Casual riders. July leads in ridership for Casual Riders, and August leads for Member Riders.</p>
+						    <span class="image fit"><img src="images/img13.jpg" alt="" /></span>
+							<span class="image fit"><img src="images/img14.jpg" alt="" /></span>
+							<p>In April, Casual Riders experienced a 136% growth, while Member Riders had a 38.74% growth in the number of rides, making it the largest growth in April.
+							</p>
+							<span class="image fit"><img src="images/img15.jpg" alt="" /></span>
+							<p>The most popular days for rides among Casual Riders are Saturday and Sunday, while Wednesday is the most popular day for Member Riders. Member riders are more consistent throughout the week.</p>
+						    
+							<h3>Act</h3>
+                            <ol>
+								<li>Begin a marketing campaign promoting membership in March.</li>
+								<li>Offer customized membership options specifically for weekends.</li>
+								<li>Pair custom membership options with other entertainment offerings along the Chicago Lakefront Trail.</li>
+								<li>Concentrate your marketing efforts along the Chicago Lakefront Trail.</li>
+								<li>Create special offers for Docker memberships.</li>
+								<li>Introduce a night-time special offer for electric bike rentals.</li>
+								<li>Morning special offer to attract people to ride to work with the help of bikes.</li>
+							</ol>
+						</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Greater Seattle Area, WA, 98087</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(425) 480-0097</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">klitna.tetiana@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/tetiana-klitna-2970b950/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/TetianaKlitna" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
