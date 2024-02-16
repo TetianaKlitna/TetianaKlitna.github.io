@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html">
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+					
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/tetiana-klitna-2970b950/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/TetianaKlitna" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">2024</span>
+									<h3>Python project on DataCamp: Investigating Netflix Movies <br />
+									(Pandas and Matplotlib)</h3>
+									<p>
+										Utilize the core competencies gained from the "Introduction to Python" and "Intermediate Python" courses to manipulate and visualize Netflix data.</p>
+								</header>
+								<div class="image main"><img src="images/movies.jpg" alt="" /></div>
+								  <b>Metadata:</b><br/>
+								  <b>netflix_data.csv</b>
+								  <ul>
+									<li><b>show_id</b>  The ID of the show</li>
+									<li><b>type</b>  Type of show</li>
+									<li><b>title</b> Title of the show</li>
+									<li><b>director</b> Director of the show</li>
+									<li><b>cast</b> Cast of the show</li>
+									<li><b>country</b> Country of origin</li>
+									<li><b>date_added</b> Date added to Netflix</li>
+									<li><b>release_year</b> Year of Netflix release</li>
+									<li><b>duration</b> Duration of the show in minutes</li>
+									<li><b>description</b> Description of the show</li>
+									<li><b>genre</b> Show genre</li>
+								  </ul>
+					
+								<p><h3>Exploratory data analysis on the netflix_data.csv data:</h3>	
+									<ol>
+										<li>Load the CSV file and store as netflix_df.</li>
+										<li>Filter the data to remove TV shows and store as netflix_subset.</li>
+										<li>Investigate the Netflix movie data, keeping only the columns "title", "country", "genre", "release_year", "duration", and saving this into a new DataFrame called netflix_movies.</li>
+										<li>Filter netflix_movies to find the movies that are strictly shorter than 60 minutes, saving the resulting DataFrame as short_movies; inspect the result to find possible contributing factors.
+										<li>Using a for loop and if/elif statements, iterate through the rows of netflix_movies and assign colors of your choice to four genre groups ("Children", "Documentaries", "Stand-Up", and "Other" for everything else). 
+										<br>Save the results in a colors list. Initialize a matplotlib figure object called fig and create a scatter plot for movie duration by release year using the colors list to color the points and using the labels "Release year" for the x-axis, "Duration (min)" for the y-axis, and the title "Movie Duration by Year of Release".</li>
+										<li>After inspecting the plot, answer the question "Are we certain that movies are getting shorter?" by assigning either "yes" or "no" to the variable answer.</li>
+									</ol>
+<b>The process of analyzing data:</b> 
+<pre> <code>
+	import pandas as pd
+	import matplotlib.pyplot as plt
+	
+	netflix_df = pd.read_csv('netflix_data.csv')
+	netflix_subset = netflix_df[netflix_df['type'] != 'TV Show']
+	netflix_movies = netflix_subset[['title', 'country', 'genre', 'release_year', 'duration']]
+	short_movies = netflix_movies[netflix_movies['duration'] < 60]
+	
+	colors = []
+	for lab, movie in netflix_movies.iterrows():
+		if movie['genre'] == 'Children':
+			colors.append('orange')
+		elif movie['genre'] == 'Documentaries':
+			colors.append('red')
+		elif movie['genre'] == 'Stand-Up':
+			colors.append('blue')
+		else:
+			colors.append('green')
+	
+	fig = plt.figure()
+	plt.scatter(x = netflix_movies['release_year'], y = netflix_movies['duration'], c = colors, alpha = 0.6)
+	plt.xlabel('Release year')
+	plt.ylabel('Duration (min)')
+	plt.title('Movie Duration by Year of Release')
+	
+	plt.show()
+	answer = 'no'	
+</code></pre>
+<span class="image fit"><img src="images/movies_scatter.png" alt="" /></span>
+										
+						</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Greater Seattle Area, WA, 98087</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(425) 480-0484</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">klitna.tetiana@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/tetiana-klitna-2970b950/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/TetianaKlitna" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
