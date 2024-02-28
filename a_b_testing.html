@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html">
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+					
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/tetiana-klitna-2970b950/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/TetianaKlitna" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">2024</span>
+									<h3>Project: Hypothesis Testing <br />
+										Men's and Women's Soccer Matches</h3>
+									<p>
+										Utilize the core competencies gained from Sampling and Hyposesis Tesing in Python courses.</p>
+								</header>
+								<div class="image main"><img src="images/pic12.jpg" alt="" /></div>
+								Two datasets containing the results of every official men's and women's international football 
+								<br>match since the 19th century, which you scraped from a reliable online source. 
+								<br>This data is stored in two CSV files: women_results.csv and men_results.csv.
+								
+								<br>The question you are trying to determine the answer to is:
+								
+								<br><b>Are more goals scored in women's international soccer matches than men's?</b>
+								
+								<br>You assume a <b>10% significance level</b>, and use the following null and alternative hypotheses:
+								
+								<br><i>H0: The mean number of goals scored in women's international soccer matches is the same as men's.
+								
+								<br>HA: The mean number of goals scored in women's international soccer matches is greater than men's.</ii>
+<b><br>Hypothesis Testing:</b> 
+<pre> <code>
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+
+alpha = 0.01
+# hO: mean_number_goals_women - mean_number_goals_men = 0
+# Ha: mean_number_goals_women - mean_number_goals_men > 0
+
+# Since the dataframes are already defined in the environment, we skip the CSV reading part
+woman_results = pd.read_csv("women_results.csv")
+condition = (filtered_woman_results['date'] > '2002-01-01') & (filtered_woman_results['tournament'] == 'FIFA World Cup')
+filtered_woman_results = filtered_woman_results[condition]
+filtered_woman_results['number_goals_per_game'] = filtered_woman_results['home_score'] + filtered_woman_results['away_score']
+filtered_woman_results['gender'] = 'woman'
+
+num_samples = 1000
+sample_size = 30
+sample_woman_means = []
+for _ in range(num_samples):
+    sample = np.random.choice(filtered_woman_results['number_goals_per_game'], size=sample_size, replace=False)
+    sample_woman_means.append(np.mean(sample))
+
+plt.hist(sample_woman_means)
+plt.show();
+
+man_results = pd.read_csv("men_results.csv")
+condition = (filtered_man_results['date'] > '2002-01-01') & (filtered_man_results['tournament'] == 'FIFA World Cup')
+filtered_man_results = filtered_man_results[condition]
+filtered_man_results['number_goals_per_game'] = filtered_man_results['home_score'] + filtered_man_results['away_score']
+filtered_man_results['gender'] = 'man'
+
+sample_man_means = []
+for _ in range(num_samples):
+    sample = np.random.choice(filtered_man_results['number_goals_per_game'], size=sample_size, replace=False)
+    sample_man_means.append(np.mean(sample))
+    
+plt.hist(sample_man_means)
+plt.show();   
+
+mean_woman = np.mean(sample_woman_means)
+mean_man = np.mean(sample_man_means)
+
+std_dev_woman= np.std(sample_woman_means, ddof=1)  # ddof=1 for sample standard deviation
+std_dev_man = np.std(sample_man_means, ddof=1)
+
+n_woman= len(sample_woman_means)
+n_man = len(sample_man_means)
+
+# Adjusting the t-test for one-tailed by dividing the p-value by 2
+t_statistic, p_value = stats.ttest_ind(sample_woman_means, sample_man_means, alternative='greater')
+
+print("t-statistic:", t_statistic)
+print("p-value:", p_value)
+
+if p_value < alpha:
+    print("Reject the null hypothesis")
+else:
+    print("Fail to reject the null hypothesis")
+</code></pre>
+</span>
+										
+						</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Greater Seattle Area, WA, 98087</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(425) 480-0484</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">klitna.tetiana@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/tetiana-klitna-2970b950/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/TetianaKlitna" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
