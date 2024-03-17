@@ -118,6 +118,50 @@ if p_value < alpha:
 else:
     print("Fail to reject the null hypothesis")
 </code></pre>
+<pre><code>
+	import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+import pingouin
+
+alpha = 0.01
+# hO: mean_number_goals_women - mean_number_goals_men = 0
+# Ha: mean_number_goals_women - mean_number_goals_men > 0
+
+# Since the dataframes are already defined in the environment, we skip the CSV reading part
+woman_results = pd.read_csv("women_results.csv")
+condition = (woman_results['date'] > '2002-01-01') & (woman_results['tournament'] == 'FIFA World Cup')
+filtered_woman_results = woman_results[condition]
+filtered_woman_results['number_goals_per_game'] = filtered_woman_results['home_score'] + filtered_woman_results['away_score']
+filtered_woman_results['gender'] = 'woman'
+
+plt.hist(filtered_woman_results['number_goals_per_game'])
+plt.show();
+
+man_results = pd.read_csv("men_results.csv")
+condition = (man_results['date'] > '2002-01-01') & (man_results['tournament'] == 'FIFA World Cup')
+filtered_man_results = man_results[condition]
+filtered_man_results['number_goals_per_game'] = filtered_man_results['home_score'] + filtered_man_results['away_score']
+filtered_man_results['gender'] = 'man'
+    
+plt.hist(filtered_man_results['number_goals_per_game'])
+plt.show();   
+
+test_results = pingouin.mwu(x=filtered_woman_results['number_goals_per_game'],
+                          y=filtered_man_results['number_goals_per_game'],
+                          alternative="greater")
+
+p_val = test_results["p-val"].values[0]
+
+# Determine hypothesis test result using significant level
+if p_val <= 0.01:
+    result = "reject"
+else:
+    result = "fail to reject"
+
+result_dict = {"p_val": p_val, "result": result}
+</code></pre>
 </span>
 										
 						</section>
